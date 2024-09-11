@@ -24,8 +24,8 @@ export default function NotFound() {
                   href='/'
                   className='inline-flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground'
                 >
-                  <ArrowLeftIcon className='text-red-900 h-5 w-5' />
-                  <span  className='text-red-900'>Go back home</span>
+                  <ArrowLeftIcon className='text-red-400 h-5 w-5' />
+                  <span  className='text-red-400'>Go back home</span>
                 </Link>
               </div>
             </div>
