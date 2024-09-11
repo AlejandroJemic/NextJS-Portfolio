@@ -1,41 +1,43 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getPostBySlug, getPosts } from '@/lib/posts'
-import { ArrowLeftIcon } from '@radix-ui/react-icons'
+
 import { formatDate } from '@/lib/utils'
-import { notFound } from 'next/navigation'
 import MDXContent from '@/components/MDXContent'
+import { ArrowLeftIcon } from '@radix-ui/react-icons'
+import { getProjectBySlug, getProjects } from '@/lib/projects'
+import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  const posts = await getPosts()
-  const slugs = posts.map(post => ({ slug: post.slug }))
+  const projects = await getProjects()
+  const slugs = projects.map(project => ({ slug: project.slug }))
 
   return slugs
-}	
+}
 
-export default async function Posts({params}:{params:{slug:string}}) {
-    
-    const {slug} = params
+export default async function Project({
+  params
+}: {
+  params: { slug: string }
+}) {
+  const { slug } = params
+  const project = await getProjectBySlug(slug)
 
-    const post = await getPostBySlug(slug)
-  
-    if (!post) {
-        notFound()
-    }
+  if (!project) {
+    notFound()
+  }
 
-const {metadata, content} = post ?? {}
-const {title,image, author, publishedAt} = metadata ??{}
+  const { metadata, content } = project
+  const { title, image, author, publishedAt } = metadata
 
-
-return (
+  return (
     <section className='pb-24 pt-32'>
       <div className='container max-w-3xl'>
         <Link
-          href='/posts'
+          href='/projects'
           className='mb-8 inline-flex items-center gap-2 text-sm font-light text-muted-foreground transition-colors hover:text-foreground'
         >
           <ArrowLeftIcon className='h-5 w-5' />
-          <span>Back to posts</span>
+          <span>Back to projects</span>
         </Link>
 
         {image && (
@@ -56,11 +58,10 @@ return (
           </p>
         </header>
 
-        <main className='prose dark:prose-invert mt-16'>
-          <MDXContent source={content ?? ''} />
+        <main className='prose mt-16 dark:prose-invert'>
+          <MDXContent source={content} />
         </main>
-
       </div>
     </section>
-    )
+  )
 }
