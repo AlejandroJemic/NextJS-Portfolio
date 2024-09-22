@@ -1,0 +1,77 @@
+---
+  title: NetTask firewall for Windows
+  summary: A firewall for Windows made with Python.
+  image: /images/projects/nettask-firewall.png
+  author: 'Alejandro Jemic'
+  publishedAt: '2024-09-21'
+---
+
+# Introducing NetTask: A Next-Level Connection Monitor and Firewall for Windows
+
+In today's digital age, the importance of a robust security system cannot be overstated. Enter **NetTask**, a powerful connection monitor and firewall specifically designed for Windows users. This project not only enhances security but also provides users with the tools to take control of their network connections in real-time.
+
+## What Is NetTask For?
+
+NetTask aims to address the growing need for a more stringent firewall solution that offers users complete control over their network connections without relying on external databases or executable certificates. Developed as a personal initiative, it provides a customizable and reliable way to monitor and manage connections, making it ideal for those who prioritize security and want to maintain an uncompromising stance against potential threats.
+
+## How Does It Work?
+
+At its core, NetTask operates through a user-friendly web interface that runs a local server in the background. This interface allows users to:
+
+- Monitor network connections in real-time.
+- Analyze destination IP addresses and their geographical locations, visualized via Google Maps.
+- Conduct domain resolution to identify associated domains.
+- Check destination IPs against blacklists for enhanced security.
+- Manually block or unblock connections based on personal analysis.
+- Access advanced search features for filtering connections by IP, executable PID, or domain.
+- Receive connection summaries for active processes or overall connection statuses.
+- Utilize a Process Watchdog feature to monitor specific executables and actively manage their connections.
+- Analyze interconnected connections to detect abnormal behaviors.
+
+## Capabilities
+
+NetTask is equipped with several standout capabilities:
+
+- **Dynamic Firewall Management**: Users can block or unblock connections and executables in real time.
+- **Intuitive User Interface**: An accessible web interface simplifies complex network management tasks.
+- **System Tray Integration**: Quick access through a system tray menu enhances user interaction.
+- **Real-Time Visualizations**: The ability to visualize connection statuses helps users make informed security decisions.
+
+## Technology Stack and Why Use Them
+
+NetTask employs a robust technology stack that enhances its performance and reliability:
+
+- **Python 3.x**: Chosen for its simplicity and extensive library support, Python makes the development process smooth and efficient.
+- **Flask**: This web framework facilitates easy server creation and management, making it ideal for building web applications.
+- **HTML/CSS & Google Fonts**: Aesthetic design elements enhance the user experience.
+- **Socket Programming**: Essential for managing network connections effectively.
+- **Threading**: Enables parallel processing, ensuring that the application runs smoothly without lag.
+- **ctypes & Pywin32**: These libraries facilitate direct interaction with the Windows operating system, allowing for more precise control over processes.
+- **Requests**: Simplifies handling HTTP requests, crucial for web-based applications.
+- **Pandas**: Used for data analysis, aiding in the processing of connection data.
+- **Psutil**: Provides detailed information about system processes, enriching the analysis capabilities of the firewall.
+- **PyInstaller**: Allows for the creation of executable files, making deployment straightforward.
+
+## Getting Started with NetTask
+
+Starting with NetTask is simple. Here’s a quick guide:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AlejandroJemic/nettask-firewall.git
+   ```
+2. Install the necessary dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the web server:
+   ```bash
+   python server.py
+   ```
+4. Access the interface via your browser at `http://localhost:8090`.
+
+## Conclusion
+
+NetTask is more than just a firewall; it’s a comprehensive connection monitoring solution that empowers users to take charge of their network security. With its intuitive interface and powerful capabilities, it stands as a testament to the need for more personalized security solutions in today’s interconnected world. If you’re looking for a way to enhance your digital security while maintaining full control over your system’s network connections, give NetTask a try! 
+
+For those interested in contributing to this open-source project, feel free to submit an issue or pull request—your input is always welcome. Explore the potential of NetTask and join a community committed to better network security.
